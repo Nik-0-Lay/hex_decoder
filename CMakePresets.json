@@ -1,0 +1,38 @@
+
+{
+    "version": 9,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 30,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+              },
+            "description": "Essentially abstract base preset to be inherited from",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build",
+            "installDir": "${sourceDir}/install",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug, Release",
+                "CMAKE_RUNTIME_OUTPUT_DIRECTORY": "${sourceDir}/build/bin",
+                "CMAKE_PREFIX_PATH": "$env{Qt6_DIR}"
+            }
+        },
+        {
+            "name": "x64-windows",
+            "displayName": "Windows-x64 configuration preset",
+            "description": "Sets generator, architecture and necessary CMake cache variables",
+            "inherits": [ "base" ],
+            "generator": "Visual Studio 17 2022",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": "cl.exe"
+            }
+        }
+    ]
+}

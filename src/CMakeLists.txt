@@ -1,3 +1,10 @@
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets Gui)
+qt_standard_project_setup()
+
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
 set(DECODER
     decoder/decoder.h
     decoder/decoder.cpp
